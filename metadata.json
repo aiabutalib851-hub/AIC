@@ -1,0 +1,6 @@
+{
+  "name": "AIC Agency Dashboard",
+  "description": "Executive AI consulting, multi-business treasury and multiple accounts finance management, income & expense ledger, multi-product inventory tracking, and client CRM operations dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
