@@ -38,18 +38,18 @@ export interface TabHelpContext {
 }
 
 export const TAB_HELP_CONTEXTS: Record<DashboardTab, TabHelpContext> = {
-  billing: {
-    tab: 'billing',
-    name: 'Billing & Treasury',
-    nameBn: 'বিলিং ও ট্রেজারি',
-    icon: Receipt,
-    primaryCategory: 'billing_finance',
-    faqTopic: 'treasury',
-    autoTags: ['Treasury', 'Invoices', 'PDF Export', 'Multi-Entity', 'Ledger', 'Banking', 'Taxes', 'Payments'],
-    description: 'Auto-detected context: Invoicing, treasury ledgers, bank reconciliation, PDF receipts, and multi-entity finances.',
-    descriptionBn: 'স্বয়ংক্রিয়ভাবে সনাক্তকৃত পেজ: ইনভয়েসিং, ট্রেজারি লেজার, ব্যাংক হিসাব, পিডিএফ রসিদ ও মাল্টি-এন্টিটি ফাইন্যান্স।',
-    quickActionLabel: 'Open Billing & Finance Guide',
-    quickActionLabelBn: 'বিলিং ও ফাইন্যান্স গাইড দেখুন'
+  services: {
+    tab: 'services',
+    name: 'Strategic Services & Agentic AI',
+    nameBn: 'স্ট্র্যাটেজিক সার্ভিস ও এজেন্টিক এআই',
+    icon: Compass,
+    primaryCategory: 'getting_started',
+    faqTopic: 'all',
+    autoTags: ['Services', 'Agentic AI', 'Autonomous', 'Growth Journey', 'Roadmap', 'Consulting'],
+    description: 'Auto-detected context: Major Service: Agentic AI Autonomous Systems and 7-stage client growth journey.',
+    descriptionBn: 'স্বয়ংক্রিয়ভাবে সনাক্তকৃত পেজ: প্রধান সার্ভিস: এজেন্টিক এআই স্বায়ত্তশাসিত সিস্টেম এবং ৭-ধাপের ক্লায়েন্ট গ্রোথ জার্নি।',
+    quickActionLabel: 'Open Services & Agentic AI Guide',
+    quickActionLabelBn: 'সার্ভিস ও এজেন্টিক এআই গাইড দেখুন'
   },
   blueprint: {
     tab: 'blueprint',
@@ -116,19 +116,6 @@ export const TAB_HELP_CONTEXTS: Record<DashboardTab, TabHelpContext> = {
     quickActionLabel: 'Open Client CRM Guide',
     quickActionLabelBn: 'ক্লায়েন্ট সিআরএম গাইড দেখুন'
   },
-  services: {
-    tab: 'services',
-    name: '7-Stage Service Catalog',
-    nameBn: 'সার্ভিস ক্যাটালগ',
-    icon: Layers,
-    primaryCategory: 'getting_started',
-    faqTopic: 'clients',
-    autoTags: ['Services', 'SLA', '7-Stage Journey', 'Deliverables', 'Tiers', 'Packages'],
-    description: 'Auto-detected context: 7-Stage Client Growth Journey, standardized service tiers, SLA milestones, and onboarding.',
-    descriptionBn: 'স্বয়ংক্রিয়ভাবে সনাক্তকৃত পেজ: ৭-ধাপের ক্লায়েন্ট গ্রোথ জার্নি, সার্ভিস টিয়ার ও ডেলিভারেবল সময়সীমা।',
-    quickActionLabel: 'Open Service Catalog Guide',
-    quickActionLabelBn: 'সার্ভিস ক্যাটালগ গাইড দেখুন'
-  },
   pipeline: {
     tab: 'pipeline',
     name: 'Project Pipeline',
@@ -154,19 +141,6 @@ export const TAB_HELP_CONTEXTS: Record<DashboardTab, TabHelpContext> = {
     descriptionBn: 'স্বয়ংক্রিয়ভাবে সনাক্তকৃত পেজ: পরিচালক আবু তালেবের অভিজ্ঞতা, লাইভ পোর্টফোলিও ও কনসালটেশন বুকিং।',
     quickActionLabel: 'Open Founder & Support Guide',
     quickActionLabelBn: 'ফাউন্ডার ও সাপোর্ট গাইড দেখুন'
-  },
-  overview: {
-    tab: 'overview',
-    name: 'Executive Overview',
-    nameBn: 'এক্সিকিউটিভ ওভারভিউ',
-    icon: Compass,
-    primaryCategory: 'getting_started',
-    faqTopic: 'all',
-    autoTags: ['Overview', 'Shortcuts', 'Telemetry', 'Navigation', 'Ctrl+K', 'Command Palette', 'Security'],
-    description: 'Auto-detected context: High-level operations, key command palette shortcuts, and agency telemetry.',
-    descriptionBn: 'স্বয়ংক্রিয়ভাবে সনাক্তকৃত পেজ: সার্বিক অপারেশন, কমান্ড প্যালেট কীবোর্ড শর্টকাট ও লাইভ টেলিমেট্রি।',
-    quickActionLabel: 'Open Getting Started Guide',
-    quickActionLabelBn: 'শুরু করার গাইড দেখুন'
   }
 };
 
@@ -181,14 +155,14 @@ export interface AutoTaggedFaqResult {
  * Evaluates and ranks FAQs based on the active tab context.
  */
 export function getSuggestedFaqsForTab(
-  tab: DashboardTab = 'overview',
+  tab: DashboardTab = 'services',
   allFaqs: AgencyFaqItem[] = []
 ): {
   tabContext: TabHelpContext;
   suggestedResults: AutoTaggedFaqResult[];
   autoTags: string[];
 } {
-  const tabContext = TAB_HELP_CONTEXTS[tab] || TAB_HELP_CONTEXTS.overview;
+  const tabContext = TAB_HELP_CONTEXTS[tab] || TAB_HELP_CONTEXTS.services;
   const contextTagsLower = tabContext.autoTags.map((t) => t.toLowerCase());
 
   const scoredList: AutoTaggedFaqResult[] = allFaqs.map((faq) => {

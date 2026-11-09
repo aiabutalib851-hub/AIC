@@ -258,7 +258,7 @@ export interface ActivityEvent {
   clientName?: string;
 }
 
-export type DashboardTab = 'overview' | 'founder' | 'blueprint' | 'services' | 'clients' | 'cro' | 'fleet' | 'pipeline' | 'billing' | 'copilot';
+export type DashboardTab = 'services' | 'blueprint' | 'cro' | 'clients' | 'fleet' | 'pipeline' | 'founder' | 'copilot';
 
 export type GrowthStage = 
   | 'diagnose' 

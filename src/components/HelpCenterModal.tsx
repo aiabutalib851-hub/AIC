@@ -43,7 +43,7 @@ interface HelpCenterModalProps {
   onNavigateTab: (tab: DashboardTab) => void;
 }
 
-type HelpCategory = 'getting_started' | 'faq' | 'meta_ads_cro' | 'billing_finance' | 'ai_fleet' | 'security' | 'support';
+type HelpCategory = 'getting_started' | 'faq' | 'meta_ads_cro' | 'services_agentic_ai' | 'ai_fleet' | 'security' | 'support';
 
 export const HelpCenterModal: React.FC<HelpCenterModalProps> = ({
   isOpen,
@@ -56,7 +56,7 @@ export const HelpCenterModal: React.FC<HelpCenterModalProps> = ({
   const [selectedFaqTopic, setSelectedFaqTopic] = useState<FaqTopic>('all');
   const [expandedFaqIds, setExpandedFaqIds] = useState<string[]>([
     'faq-portal-switch',
-    'faq-multi-business'
+    'faq-agentic-ai-major-service'
   ]);
 
   // Toggle FAQ accordion expansion
@@ -138,10 +138,10 @@ export const HelpCenterModal: React.FC<HelpCenterModalProps> = ({
       icon: Megaphone
     },
     {
-      id: 'billing_finance',
-      label: 'Billing & Multi-Business',
-      labelBn: 'বিলিং ও মাল্টি-বিজনেস',
-      icon: Receipt
+      id: 'services_agentic_ai',
+      label: 'Agentic AI & Services',
+      labelBn: 'এজেন্টিক এআই ও সার্ভিস',
+      icon: Compass
     },
     {
       id: 'ai_fleet',
@@ -578,32 +578,19 @@ export const HelpCenterModal: React.FC<HelpCenterModalProps> = ({
 
                 <div className="space-y-3">
                   <h3 className="text-xs uppercase font-bold tracking-wider text-slate-400">
-                    {isBangla ? 'প্রধান ১০টি মডিউল পরিচিতি' : 'The 10 Core Platform Modules'}
+                    {isBangla ? 'প্রধান ৮টি সার্ভিস ও অপারেশনাল মডিউল' : 'The 8 Core Platform Modules'}
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                    <div 
-                      onClick={() => handleNavigate('overview')}
-                      className="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-cyan-500/40 cursor-pointer transition-all group"
-                    >
-                      <div className="flex items-center justify-between text-xs font-bold text-white group-hover:text-cyan-300">
-                        <span className="flex items-center gap-1.5"><Compass className="w-3.5 h-3.5 text-cyan-400" /> 1. Overview</span>
-                        <ArrowRight className="w-3 h-3 text-slate-500 group-hover:translate-x-0.5 group-hover:text-cyan-400 transition-all" />
-                      </div>
-                      <p className="text-[11px] text-slate-400 mt-1">
-                        {isBangla ? 'সার্বিক টেলিমেট্রি, ক্লায়েন্ট স্থিতি ও লাইভ অপারেশন মেট্রিক্স।' : 'Executive telemetry, live retainers & real-time operational status.'}
-                      </p>
-                    </div>
-
                     <div 
                       onClick={() => handleNavigate('services')}
                       className="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-cyan-500/40 cursor-pointer transition-all group"
                     >
                       <div className="flex items-center justify-between text-xs font-bold text-white group-hover:text-cyan-300">
-                        <span className="flex items-center gap-1.5"><Layers className="w-3.5 h-3.5 text-indigo-400" /> 2. Service Catalog</span>
+                        <span className="flex items-center gap-1.5"><Compass className="w-3.5 h-3.5 text-cyan-400" /> 1. Service Catalog (Agentic AI)</span>
                         <ArrowRight className="w-3 h-3 text-slate-500 group-hover:translate-x-0.5 group-hover:text-cyan-400 transition-all" />
                       </div>
                       <p className="text-[11px] text-slate-400 mt-1">
-                        {isBangla ? '৭-ধাপের ক্লায়েন্ট গ্রোথ জার্নি (Diagnose থেকে Scale পর্যন্ত)।' : 'The 7-stage client growth journey from Diagnose to Scale.'}
+                        {isBangla ? 'মেজর সার্ভিস: এজেন্টিক এআই ও ৭-ধাপের ক্লায়েন্ট গ্রোথ জার্নি।' : 'Major Service: Agentic AI Autonomous Systems & 7-Stage Client Growth.'}
                       </p>
                     </div>
 
@@ -612,7 +599,7 @@ export const HelpCenterModal: React.FC<HelpCenterModalProps> = ({
                       className="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-cyan-500/40 cursor-pointer transition-all group"
                     >
                       <div className="flex items-center justify-between text-xs font-bold text-white group-hover:text-cyan-300">
-                        <span className="flex items-center gap-1.5"><Megaphone className="w-3.5 h-3.5 text-amber-400" /> 3. Meta Ads Blueprint</span>
+                        <span className="flex items-center gap-1.5"><Megaphone className="w-3.5 h-3.5 text-amber-400" /> 2. Meta Ads Blueprint</span>
                         <ArrowRight className="w-3 h-3 text-slate-500 group-hover:translate-x-0.5 group-hover:text-cyan-400 transition-all" />
                       </div>
                       <p className="text-[11px] text-slate-400 mt-1">
@@ -625,7 +612,7 @@ export const HelpCenterModal: React.FC<HelpCenterModalProps> = ({
                       className="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-cyan-500/40 cursor-pointer transition-all group"
                     >
                       <div className="flex items-center justify-between text-xs font-bold text-white group-hover:text-cyan-300">
-                        <span className="flex items-center gap-1.5"><Target className="w-3.5 h-3.5 text-rose-400" /> 4. CRO & Growth Audit</span>
+                        <span className="flex items-center gap-1.5"><Target className="w-3.5 h-3.5 text-rose-400" /> 3. CRO & Growth Audit</span>
                         <ArrowRight className="w-3 h-3 text-slate-500 group-hover:translate-x-0.5 group-hover:text-cyan-400 transition-all" />
                       </div>
                       <p className="text-[11px] text-slate-400 mt-1">
@@ -634,15 +621,54 @@ export const HelpCenterModal: React.FC<HelpCenterModalProps> = ({
                     </div>
 
                     <div 
-                      onClick={() => handleNavigate('billing')}
+                      onClick={() => handleNavigate('fleet')}
                       className="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-cyan-500/40 cursor-pointer transition-all group"
                     >
                       <div className="flex items-center justify-between text-xs font-bold text-white group-hover:text-cyan-300">
-                        <span className="flex items-center gap-1.5"><Receipt className="w-3.5 h-3.5 text-emerald-400" /> 5. Billing & Treasury</span>
+                        <span className="flex items-center gap-1.5"><Bot className="w-3.5 h-3.5 text-indigo-400" /> 4. AI Agent Fleet</span>
                         <ArrowRight className="w-3 h-3 text-slate-500 group-hover:translate-x-0.5 group-hover:text-cyan-400 transition-all" />
                       </div>
                       <p className="text-[11px] text-slate-400 mt-1">
-                        {isBangla ? 'মাল্টি-বিজনেস এন্টিটি, একাধিক ব্যাংক একাউন্ট, আয়-ব্যয় হিসাব ও ইনভেন্টরি।' : 'Multiple businesses, bank accounts, income/expense tracking & invoicing.'}
+                        {isBangla ? 'স্বায়ত্তশাসিত এআই এজেন্ট বহর, ওয়েবহুক মনিটরিং ও আপটাইম।' : 'Autonomous agent fleet, webhook uptime monitoring & client deployments.'}
+                      </p>
+                    </div>
+
+                    <div 
+                      onClick={() => handleNavigate('pipeline')}
+                      className="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-cyan-500/40 cursor-pointer transition-all group"
+                    >
+                      <div className="flex items-center justify-between text-xs font-bold text-white group-hover:text-cyan-300">
+                        <span className="flex items-center gap-1.5"><GitBranch className="w-3.5 h-3.5 text-blue-400" /> 5. Project Pipeline</span>
+                        <ArrowRight className="w-3 h-3 text-slate-500 group-hover:translate-x-0.5 group-hover:text-cyan-400 transition-all" />
+                      </div>
+                      <p className="text-[11px] text-slate-400 mt-1">
+                        {isBangla ? 'কানবান স্প্রিন্ট মাইলস্টোন, প্রজেক্ট স্ট্যাটাস ও এসএলএ ডেলিভারি।' : 'Active Kanban sprint milestones, staging & SLA deliverables.'}
+                      </p>
+                    </div>
+
+                    <div 
+                      onClick={() => handleNavigate('clients')}
+                      className="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-cyan-500/40 cursor-pointer transition-all group"
+                    >
+                      <div className="flex items-center justify-between text-xs font-bold text-white group-hover:text-cyan-300">
+                        <span className="flex items-center gap-1.5"><Users className="w-3.5 h-3.5 text-emerald-400" /> 6. Clients & Retainers</span>
+                        <ArrowRight className="w-3 h-3 text-slate-500 group-hover:translate-x-0.5 group-hover:text-cyan-400 transition-all" />
+                      </div>
+                      <p className="text-[11px] text-slate-400 mt-1">
+                        {isBangla ? 'ক্লায়েন্ট পোর্টফোলিও, একাউন্ট হেলথ ও রিটেইনার স্টেজ।' : 'Client account directories, health scores & retainer stages.'}
+                      </p>
+                    </div>
+
+                    <div 
+                      onClick={() => handleNavigate('founder')}
+                      className="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-cyan-500/40 cursor-pointer transition-all group"
+                    >
+                      <div className="flex items-center justify-between text-xs font-bold text-white group-hover:text-cyan-300">
+                        <span className="flex items-center gap-1.5"><Award className="w-3.5 h-3.5 text-purple-400" /> 7. Founder Portfolio (Abu Talib)</span>
+                        <ArrowRight className="w-3 h-3 text-slate-500 group-hover:translate-x-0.5 group-hover:text-cyan-400 transition-all" />
+                      </div>
+                      <p className="text-[11px] text-slate-400 mt-1">
+                        {isBangla ? 'ফাউন্ডার আবু তালিবের লাইভ পোর্টফোলিও ও সরাসরি হোয়াটসঅ্যাপ যোগাযোগ।' : 'Founder credentials, Agentic AI architecture & live Netlify portfolio.'}
                       </p>
                     </div>
 
@@ -651,7 +677,7 @@ export const HelpCenterModal: React.FC<HelpCenterModalProps> = ({
                       className="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-cyan-500/40 cursor-pointer transition-all group"
                     >
                       <div className="flex items-center justify-between text-xs font-bold text-white group-hover:text-cyan-300">
-                        <span className="flex items-center gap-1.5"><Sparkles className="w-3.5 h-3.5 text-cyan-400" /> 10. AI Copilot</span>
+                        <span className="flex items-center gap-1.5"><Sparkles className="w-3.5 h-3.5 text-cyan-400" /> 8. AI Copilot</span>
                         <ArrowRight className="w-3 h-3 text-slate-500 group-hover:translate-x-0.5 group-hover:text-cyan-400 transition-all" />
                       </div>
                       <p className="text-[11px] text-slate-400 mt-1">
@@ -732,24 +758,24 @@ export const HelpCenterModal: React.FC<HelpCenterModalProps> = ({
               </div>
             )}
 
-            {/* CATEGORY 3: BILLING & MULTI-BUSINESS */}
-            {activeCategory === 'billing_finance' && (
+            {/* CATEGORY 3: AGENTIC AI & STRATEGIC SERVICES */}
+            {activeCategory === 'services_agentic_ai' && (
               <div className="space-y-4">
                 <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                   <div>
                     <h3 className="font-bold text-white text-sm flex items-center gap-2">
-                      <Receipt className="w-4 h-4 text-emerald-400" />
-                      <span>{isBangla ? 'মাল্টি-বিজনেস ও ট্রেজারি ব্যবস্থাপনা' : 'Multi-Business Treasury & Invoicing'}</span>
+                      <Compass className="w-4 h-4 text-cyan-400" />
+                      <span>{isBangla ? 'মেজর সার্ভিস: এজেন্টিক এআই ও ক্লায়েন্ট গ্রোথ' : 'Major Service: Agentic AI & Growth Catalog'}</span>
                     </h3>
                     <p className="text-xs text-slate-400 mt-0.5">
-                      {isBangla ? 'একাধিক কোম্পানি, একাধিক ব্যাংক একাউন্ট ও কাস্টম ক্যাটাগরি' : 'Consolidate multiple operating legal entities, accounts, and inventory'}
+                      {isBangla ? 'ফাউন্ডার আবু তালিবের অটোনোমাস এআই আর্কিটেকচার ও ৭-ধাপের ক্লায়েন্ট জার্নি' : 'Founder Abu Talib autonomous architectures & 7-stage client roadmap'}
                     </p>
                   </div>
                   <button
-                    onClick={() => handleNavigate('billing')}
-                    className="px-3 py-1.5 rounded-lg text-xs font-bold bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 transition-all flex items-center gap-1"
+                    onClick={() => handleNavigate('services')}
+                    className="px-3 py-1.5 rounded-lg text-xs font-bold bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 transition-all flex items-center gap-1"
                   >
-                    <span>{isBangla ? 'বিলিংয়ে যান' : 'Open Billing'}</span>
+                    <span>{isBangla ? 'সার্ভিস ক্যাটালগে যান' : 'Open Services'}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -757,34 +783,34 @@ export const HelpCenterModal: React.FC<HelpCenterModalProps> = ({
                 <div className="space-y-3 text-xs">
                   <div className="p-3 rounded-lg bg-slate-950 border border-slate-800">
                     <span className="font-bold text-cyan-300 block mb-1">
-                      {isBangla ? 'বিলিং কাস্টমাইজেশন ও বিজনেস নাম যুক্তকরণ:' : 'Customizing Businesses & Billing Parameters:'}
+                      {isBangla ? '১. ডোমেন ১১ — এজেন্টিক এআই ও অটোনোমাস সিস্টেমস:' : '1. Domain #11 — Agentic AI & Autonomous Systems:'}
                     </span>
                     <p className="text-slate-400 text-[11px] leading-relaxed">
                       {isBangla
-                        ? 'বিলিং পেজের "Customize Billing & Businesses" বাটনে ক্লিক করে নতুন বিজনেস নাম, অফিস ঠিকানা, ট্যাক্স আইডি (BIN/TIN), ইনভয়েস প্রিফিক্স ও পেমেন্ট টার্মস সেট করুন।'
-                        : 'Click "Customize Billing & Businesses" in Billing to configure distinct business entities (AIC, Abrar Academy, etc.), official tax IDs, legal address, invoice numbering prefix, and default terms.'}
+                        ? 'প্রতিষ্ঠাতা আবু তালিবের বিশেষায়িত ফিল্ড। মাল্টি-এজেন্ট বহর, টুল এক্সিকিউটিং এআই, স্বয়ংক্রিয় মেটা অ্যাডস অপটিমাইজার ও সেলফ-কারেক্টিং এন্টারপ্রাইজ ওয়ার্কফ্লো।'
+                        : 'Founder Abu Talib’s core expertise. Autonomous agent fleets, tool-executing AI systems, automated Meta ad optimizers, and self-correcting enterprise pipelines.'}
                     </p>
                   </div>
 
                   <div className="p-3 rounded-lg bg-slate-950 border border-slate-800">
-                    <span className="font-bold text-emerald-300 block mb-1">
-                      {isBangla ? 'আয় ও ব্যয়ের হিসাব (+ Record Income / - Record Expense):' : 'Income & Expense Recording:'}
+                    <span className="font-bold text-indigo-300 block mb-1">
+                      {isBangla ? '২. ৭-ধাপের ক্লায়েন্ট জার্নি (Diagnose থেকে Scale):' : '2. 7-Stage Client Growth Journey (Diagnose to Scale):'}
                     </span>
                     <p className="text-slate-400 text-[11px] leading-relaxed">
                       {isBangla
-                        ? 'ক্লায়েন্ট রিটেইনার বা অন্যান্য আয় রেকর্ড করুন এবং অ্যাড স্পেন্ড বা সার্ভার খরচ অপারেশনাল ব্যয় হিসেবে লিপিবদ্ধ করুন। সব ডাটা নির্দিষ্ট ব্যাংক একাউন্টে সমন্বিত হয়।'
-                        : 'Record incoming revenues and track operational business expenses (software subscriptions, ad spend, operational overhead) mapped to specific bank or mobile money accounts.'}
+                        ? 'ডায়াগনস্টিক অডিট, ট্র্যাকিং ও সিএপিআই ফাউন্ডেশন, ক্রিয়েটিভ টেস্টিং, স্কেলিং এবং রিটেনশন অপটিমাইজেশনের মাধ্যমে ক্লায়েন্টদের ব্যবসা বহুগুণ বৃদ্ধি।'
+                        : 'Structured growth roadmaps through diagnostic audits, tracking foundations, creative testing, ROAS scaling, and conversion retention optimization.'}
                     </p>
                   </div>
 
                   <div className="p-3 rounded-lg bg-slate-950 border border-slate-800">
-                    <span className="font-bold text-amber-300 block mb-1">
-                      {isBangla ? 'প্রোডাক্ট ইনভেন্টরি ও স্টক সমন্বয়:' : 'Product Inventory & Physical/Digital Toolkits:'}
+                    <span className="font-bold text-purple-300 block mb-1">
+                      {isBangla ? '৩. ফাউন্ডার আবু তালিব পোর্টফোলিও:' : '3. Founder Abu Talib Portfolio:'}
                     </span>
                     <p className="text-slate-400 text-[11px] leading-relaxed">
                       {isBangla
-                        ? 'ডিজিটাল টুলকিট বা ট্রেনিং ম্যাটেরিয়ালের স্টক ট্র্যাক করুন। স্টক আউট হলে স্বয়ংক্রিয়ভাবে অর্থ একাউন্টে জমা করার অপশন রয়েছে।'
-                        : 'Manage agency toolkits, digital courses, or equipment inventory with low-stock alerts and automatic sales-to-finance account synchronization.'}
+                        ? 'আবু তালিবের লাইভ প্রজেক্ট, মাস্টারক্লাস ও এজেন্টিক এআই আর্কিটেকচার দেখার জন্য abu-talib.netlify.app ভিজিট করতে পারেন অথবা সরাসরি হোয়াটসঅ্যাপে যোগাযোগ করতে পারেন।'
+                        : 'Explore live client builds, architecture whitepapers, and connect directly with Director Abu Talib via abu-talib.netlify.app or WhatsApp.'}
                     </p>
                   </div>
                 </div>

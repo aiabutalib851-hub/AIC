@@ -7,11 +7,9 @@ import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { Header } from './components/Header';
 import { Navigation } from './components/Navigation';
-import { OverviewView } from './components/OverviewView';
 import { ClientsView } from './components/ClientsView';
 import { AgentFleetView } from './components/AgentFleetView';
 import { PipelineView } from './components/PipelineView';
-import { BillingView } from './components/BillingView';
 import { CroReportView } from './components/CroReportView';
 import { AiCopilotView } from './components/AiCopilotView';
 import { AicServicesCatalogView } from './components/AicServicesCatalogView';
@@ -82,7 +80,7 @@ function MainDashboardApp() {
   } = useAuth();
 
   // Navigation & View State
-  const [currentTab, setCurrentTab] = useState<DashboardTab>('overview');
+  const [currentTab, setCurrentTab] = useState<DashboardTab>('services');
   const [activeClientPortalId, setActiveClientPortalId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [copilotInitialService, setCopilotInitialService] = useState<string | undefined>();
@@ -658,7 +656,6 @@ function MainDashboardApp() {
             clientsCount={clients.length}
             agentsCount={agents.length}
             projectsCount={projects.length}
-            pendingInvoicesCount={invoices.filter(i => i.status === 'pending').length}
           />
 
           <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -669,19 +666,6 @@ function MainDashboardApp() {
               />
             ) : (
               <>
-                {currentTab === 'overview' && (
-                  <OverviewView
-                    clients={clients}
-                    agents={agents}
-                    projects={projects}
-                    invoices={invoices}
-                    activities={activities}
-                    onNavigateTab={setCurrentTab}
-                    onSelectClientPortal={(cId) => setActiveClientPortalId(cId)}
-                    onOpenDeployAgent={() => setIsDeployAgentOpen(true)}
-                    onOpenCopilot={() => setCurrentTab('copilot')}
-                  />
-                )}
 
             {currentTab === 'founder' && (
               <FounderProfileView
@@ -744,33 +728,7 @@ function MainDashboardApp() {
               />
             )}
 
-            {currentTab === 'billing' && (
-              <BillingView
-                invoices={invoices}
-                clients={clients}
-                onAddNewInvoice={handleAddNewInvoice}
-                onUpdateInvoiceStatus={handleUpdateInvoiceStatus}
-                searchQuery={searchQuery}
-                accounts={accounts}
-                businesses={businesses}
-                transactions={transactions}
-                products={products}
-                movements={movements}
-                billingConfig={billingConfig}
-                onUpdateBillingConfig={handleUpdateBillingConfig}
-                onAddNewCategory={handleAddNewCategory}
-                onAddBusiness={handleAddBusiness}
-                onEditBusiness={handleEditBusiness}
-                onDeleteBusiness={handleDeleteBusiness}
-                onAddTransaction={handleAddTransaction}
-                onDeleteTransaction={handleDeleteTransaction}
-                onTransferFunds={handleTransferFunds}
-                onAddProduct={handleAddProduct}
-                onUpdateProduct={handleUpdateProduct}
-                onDeleteProduct={handleDeleteProduct}
-                onStockAdjustment={handleStockAdjustment}
-              />
-            )}
+
 
             {currentTab === 'cro' && (
               <CroReportView clients={clients} />

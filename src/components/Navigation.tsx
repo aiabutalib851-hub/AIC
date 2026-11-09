@@ -27,7 +27,6 @@ interface NavigationProps {
   clientsCount: number;
   agentsCount: number;
   projectsCount: number;
-  pendingInvoicesCount: number;
 }
 
 export interface NavItemConfig {
@@ -48,7 +47,6 @@ export const Navigation: React.FC<NavigationProps> = ({
   clientsCount,
   agentsCount,
   projectsCount,
-  pendingInvoicesCount,
 }) => {
   const { t, isBangla } = useLanguage();
   const { 
@@ -62,24 +60,18 @@ export const Navigation: React.FC<NavigationProps> = ({
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Ordered strictly according to user request:
-  // 1. Overview, 2. Service Catalog, 3. Meta Ads Blueprint, 4. CRO & Growth Audit, 5. Billing, followed by Clients, Fleet, Pipeline, Founder, Copilot
+  // Ordered with Major Service: AGENTIC AI & Service Catalog first, followed by Blueprint, CRO, Fleet, Pipeline, Clients, Founder, Copilot
   const navItems: NavItemConfig[] = [
     { 
-      id: 'overview', 
-      label: t('nav.overview', 'Overview'), 
-      shortLabel: isBangla ? 'ড্যাশবোর্ড' : 'Overview',
-      description: t('nav.overview.desc', 'Executive dashboard & real-time operational telemetry'),
-      icon: LayoutDashboard 
-    },
-    { 
       id: 'services', 
-      label: t('nav.services', 'Service Catalog'), 
+      label: isBangla ? 'সার্ভিস ক্যাটালগ (এজেন্টিক এআই)' : 'Service Catalog (Agentic AI)', 
       shortLabel: isBangla ? 'সার্ভিস' : 'Services',
-      description: t('nav.services.desc', '7-Stage client growth journey & consulting offerings'),
+      description: isBangla 
+        ? 'প্রধান সার্ভিস: এজেন্টিক এআই ও ৭-ধাপের ক্লায়েন্ট গ্রোথ আর্কিটেকচার' 
+        : 'Major Service: Agentic AI Systems & 7-Stage Client Growth Journey',
       icon: Compass, 
       featured: true, 
-      pillTag: 'JOURNEY' 
+      pillTag: 'MAJOR SERVICE' 
     },
     { 
       id: 'blueprint', 
@@ -98,14 +90,6 @@ export const Navigation: React.FC<NavigationProps> = ({
       icon: Target, 
       featured: true, 
       pillTag: 'HIGH ROI' 
-    },
-    { 
-      id: 'billing', 
-      label: t('nav.billing', 'Billing & Invoices'), 
-      shortLabel: isBangla ? 'বিলিং' : 'Billing',
-      description: t('nav.billing.desc', 'Accounts receivable, retainers & payment tracking'),
-      icon: Receipt, 
-      badge: pendingInvoicesCount > 0 ? pendingInvoicesCount : undefined 
     },
     { 
       id: 'clients', 
@@ -171,6 +155,8 @@ export const Navigation: React.FC<NavigationProps> = ({
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, []);
+
+  const visibleNavItems = navItems;
 
   const currentItem = navItems.find(item => item.id === currentTab) || navItems[0];
   const CurrentIcon = currentItem.icon;
@@ -256,7 +242,7 @@ export const Navigation: React.FC<NavigationProps> = ({
                 </div>
 
                 <div className="pt-1 space-y-1">
-                  {navItems.map((item, index) => {
+                  {visibleNavItems.map((item, index) => {
                     const Icon = item.icon;
                     const isActive = currentTab === item.id;
                     const permitted = hasAccess(item.id);
@@ -371,7 +357,7 @@ export const Navigation: React.FC<NavigationProps> = ({
 
           {/* Quick-Access Scrollable Menu Bar */}
           <div className="flex items-center space-x-1 sm:space-x-2 overflow-x-auto no-scrollbar py-0.5 flex-1 justify-start lg:justify-end">
-            {navItems.map((item) => {
+            {visibleNavItems.map((item) => {
               const Icon = item.icon;
               const isActive = currentTab === item.id;
               const permitted = hasAccess(item.id);

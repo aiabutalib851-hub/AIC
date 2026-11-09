@@ -157,7 +157,8 @@ export const Header: React.FC<HeaderProps> = ({
     logout, 
     setAuthModalOpen, 
     setUserAccessModalOpen, 
-    isCurrentAdmin 
+    isCurrentAdmin,
+    hasAccess 
   } = useAuth();
 
   const selectedPortalClient = clients.find(c => c.id === activeClientPortalId);
@@ -234,11 +235,9 @@ export const Header: React.FC<HeaderProps> = ({
 
   // Dashboard sections catalog
   const DASHBOARD_SECTIONS: { id: DashboardTab; label: string; labelBn: string; desc: string; icon: React.ElementType }[] = [
-    { id: 'overview', label: 'Overview', labelBn: 'ওভারভিউ', desc: 'Agency telemetry, KPIs & active operations', icon: Compass },
     { id: 'services', label: 'Service Catalog (Major: Agentic AI)', labelBn: 'সার্ভিস ক্যাটালগ (এজেন্টিক এআই)', desc: '11 Domains & Major Service: Agentic AI Systems', icon: Layers },
     { id: 'blueprint', label: 'Meta Ads Blueprint', labelBn: 'মেটা অ্যাডস ব্লুপ্রিন্ট', desc: '22-Phase Andromeda Campaign Architecture', icon: Megaphone },
     { id: 'cro', label: 'CRO & Growth Audit', labelBn: 'সিআরও ও গ্রোথ অডিট', desc: 'Funnel Leak Diagnostics & Conversion Multipliers', icon: Target },
-    { id: 'billing', label: 'Billing & Treasury', labelBn: 'বিলিং ও ট্রেজারি', desc: 'Multi-business treasury, accounts, invoices & ledger', icon: Receipt },
     { id: 'clients', label: 'Clients CRM', labelBn: 'ক্লায়েন্ট পোর্টাল', desc: 'Retainer accounts, SLAs & client directories', icon: Users },
     { id: 'fleet', label: 'Agentic AI Fleet', labelBn: 'এজেন্টিক এআই বহর', desc: 'Autonomous Multi-Agent Fleets & Tool-Executing AI Systems', icon: Bot },
     { id: 'pipeline', label: 'Pipeline Projects', labelBn: 'পাইপলাইন প্রজেক্ট', desc: 'Active execution stages & Kanban projects', icon: GitBranch },
@@ -264,10 +263,10 @@ export const Header: React.FC<HeaderProps> = ({
     const list = [
       {
         id: 'admin',
-        name: isBangla ? 'এজেন্সি অ্যাডমিন (মূল ড্যাশবোর্ড)' : 'Agency Admin (Executive Hub)',
+        name: isBangla ? 'এজেন্সি অ্যাডমিন (সার্ভিস ও ক্লায়েন্ট)' : 'Agency Admin (Services & Operations)',
         tier: 'Master',
         monthlyFee: undefined,
-        industry: isBangla ? 'মূল অপারেশনস' : 'Core Agency Operations',
+        industry: isBangla ? 'সার্ভিস ও অপারেশনস' : 'Core Agency Services',
         isAdmin: true
       },
       ...clients.map(c => ({
@@ -688,7 +687,7 @@ export const Header: React.FC<HeaderProps> = ({
                                     </div>
                                     <div className="text-[11px] text-slate-400 truncate">
                                       {cl.isAdmin 
-                                        ? (isBangla ? 'মূল এজেন্সি ওভারভিউ ও সার্বিক ক্লায়েন্ট কন্ট্রোল' : 'Full agency operations & controls')
+                                        ? (isBangla ? 'মূল এজেন্সি সার্ভিস ও সার্বিক ক্লায়েন্ট কন্ট্রোল' : 'Full agency services & client controls')
                                         : `${cl.tier} • $${(cl.monthlyFee || 0).toLocaleString()}/mo ${cl.industry ? `• ${cl.industry}` : ''}`}
                                     </div>
                                   </div>

@@ -3,7 +3,7 @@ import { DashboardTab } from '../types';
 export type FaqTopic = 
   | 'all' 
   | 'clients' 
-  | 'treasury' 
+  | 'services' 
   | 'campaigns' 
   | 'cro' 
   | 'agents' 
@@ -30,8 +30,8 @@ export interface AgencyFaqItem {
 
 export const FAQ_TOPICS: { id: FaqTopic; label: string; labelBn: string }[] = [
   { id: 'all', label: 'All Topics', labelBn: 'সকল টপিক' },
+  { id: 'services', label: 'Agentic AI & Services', labelBn: 'এজেন্টিক এআই ও সার্ভিস' },
   { id: 'clients', label: 'Client Portals & CRM', labelBn: 'ক্লায়েন্ট পোর্টাল ও সিআরএম' },
-  { id: 'treasury', label: 'Billing & Multi-Business', labelBn: 'বিলিং ও ট্রেজারি' },
   { id: 'campaigns', label: 'Meta Andromeda Ads', labelBn: 'মেটা অ্যান্ড্রমিডা অ্যাডস' },
   { id: 'cro', label: 'CRO & Growth Audits', labelBn: 'সিআরও ও ফানেল অডিট' },
   { id: 'agents', label: 'AI Fleet Operations', labelBn: 'এআই বহর অপারেশন' },
@@ -52,13 +52,13 @@ export const AGENCY_FAQS: AgencyFaqItem[] = [
     answerBn: 'হেডারের ড্রপডাউন মেনু অথবা Ctrl+K / ⌘K চেপে যেকোনো ক্লায়েন্টের নাম সার্চ করে সিলেক্ট করুন। এটি ওই ক্লায়েন্টের রিটেইনার, প্রজেক্ট এবং কেপিআই আলাদাভাবে প্রদর্শন করে। সব ক্লায়েন্ট একসাথে দেখতে "এজেন্সি অ্যাডমিন" বেছে নিন।',
     keyPoints: [
       'Allows agency directors to preview client dashboard experiences',
-      'Isolates metrics, invoices, and AI agent fleets per tenant',
-      'Supports one-click return to full agency operational overview'
+      'Isolates active retainers, deliverables, and AI agent fleets per tenant',
+      'Supports one-click return to full agency operations'
     ],
     keyPointsBn: [
       'ক্লায়েন্টদের নিজস্ব ড্যাশবোর্ড অভিজ্ঞতা কেমন তা সরাসরি দেখা যায়',
-      'প্রতিটি অ্যাকাউন্টের মেট্রিক্স, ইনভয়েস ও এআই বহর আলাদা ফিল্টার হয়',
-      'এক ক্লিকে মূল এজেন্সি ওভারভিউতে ফিরে যাওয়া যায়'
+      'প্রতিটি অ্যাকাউন্টের ডেলিভারেবল ও এআই বহর আলাদা ফিল্টার হয়',
+      'এক ক্লিকে মূল এজেন্সি ড্যাশবোর্ডে ফিরে যাওয়া যায়'
     ],
     tags: ['Portals', 'Multi-Tenancy', 'SLA', 'Client CRM'],
     tabTarget: 'clients',
@@ -66,52 +66,52 @@ export const AGENCY_FAQS: AgencyFaqItem[] = [
     tabLabelBn: 'ক্লায়েন্ট পোর্টাল খুলুন'
   },
   {
-    id: 'faq-multi-business',
-    topic: 'treasury',
-    topicLabel: 'Billing & Multi-Business',
-    topicLabelBn: 'বিলিং ও ট্রেজারি',
-    question: 'How do I manage finances for multiple businesses or legal entities under one agency?',
-    questionBn: 'একই এজেন্সির অধীনে একাধিক ব্যবসা বা অঙ্গপ্রতিষ্ঠানের আয়-ব্যয় কীভাবে পৃথকভাবে পরিচালনা করব?',
-    answer: 'In the Billing & Treasury module, select "Manage Business Entities" or use the Business Entity filter. You can configure distinct companies (e.g., Abrar IT Care, Abrar Academy, E-Commerce Ventures), link independent bank accounts, track ledger cash flows, and generate entity-branded invoices.',
-    answerBn: 'বিলিং ও ট্রেজারি মডিউলে "Manage Business Entities" অপশন থেকে বা ফিল্টার ব্যবহার করে আলাদা প্রতিষ্ঠান (যেমন এআইসি, আবরার একাডেমি ইত্যাদি) পরিচালনা করতে পারবেন। প্রতিটি প্রতিষ্ঠানের নিজস্ব ব্যাংক হিসাব, ক্যাশফ্লো এবং ব্র্যান্ডেড ইনভয়েস থাকে।',
+    id: 'faq-agentic-ai-major-service',
+    topic: 'services',
+    topicLabel: 'Agentic AI & Services',
+    topicLabelBn: 'এজেন্টিক এআই ও সার্ভিস',
+    question: 'Why is AGENTIC AI the primary Major Service of Abrar IT Care and Founder Abu Talib?',
+    questionBn: 'আবরার আইটি কেয়ার এবং প্রতিষ্ঠাতা আবু তালিবের প্রধান মেজর সার্ভিস কেন "এজেন্টিক এআই"?',
+    answer: 'Founder Abu Talib specializes as an expert in Agentic AI and Autonomous Multi-Agent Architectures. Unlike simple chatbots, Agentic AI systems autonomously plan, execute tools, verify outcomes, monitor databases, and operate enterprise sales and marketing funnels 24/7 without human intervention.',
+    answerBn: 'প্রতিষ্ঠাতা আবু তালিব এজেন্টিক এআই ও অটোনোমাস মাল্টি-এজেন্ট আর্কিটেকচারে বিশেষজ্ঞ। সাধারণ চ্যাটবটের মতো নয়, এজেন্টিক এআই সিস্টেম স্বয়ংক্রিয়ভাবে পরিকল্পনা করে, টুলস ব্যবহার করে, ফলাফল যাচাই করে এবং কোনো মানবিক হস্তক্ষেপ ছাড়াই ব্যবসা পরিচালনা করে।',
     keyPoints: [
-      'Multi-entity ledger prevents co-mingling of company funds',
-      'Entity-specific bank accounts, VAT numbers, and currencies (USD / BDT / EUR)',
-      'Real-time cash flow analytics filtered by legal entity'
+      'Founder Abu Talib verified Agentic AI expert portfolio: abu-talib.netlify.app',
+      'Autonomous multi-agent orchestration, tool calling, and self-correcting workflows',
+      'Comprehensive enterprise automation: Meta ads, CRM auto-sync, and automated retention'
     ],
     keyPointsBn: [
-      'আলাদা লেজারের কারণে এক কোম্পানির তহবিল অন্যটির সাথে মেশে না',
-      'প্রতিটি প্রতিষ্ঠানের নিজস্ব ব্যাংক অ্যাকাউন্ট, ভ্যাট ও মুদ্রা সমর্থন',
-      'প্রতিটি বিজনেস ইউনিটের জন্য রিয়েল-টাইম ক্যাশফ্লো রিপোর্ট'
+      'প্রতিষ্ঠাতা আবু তালিবের ভেরিফাইড পোর্টফোলিও: abu-talib.netlify.app',
+      'অটোনোমাস মাল্টি-এজেন্ট সমন্বয়, টুল এক্সিকিউশন ও সেলফ-কারেক্টিং ওয়ার্কফ্লো',
+      'এন্টারপ্রাইজ অটোমেশন: মেটা অ্যাডস, সিআরএম অটো-সিঙ্ক ও ফুল-ফানেল অপারেশন'
     ],
-    tags: ['Treasury', 'Multi-Entity', 'Banking', 'Ledger'],
-    tabTarget: 'billing',
-    tabLabel: 'Open Billing & Treasury',
-    tabLabelBn: 'বিলিং ও ট্রেজারি খুলুন'
+    tags: ['Agentic AI', 'Abu Talib', 'Autonomous Systems', 'Multi-Agent', 'Founder Portfolio'],
+    tabTarget: 'services',
+    tabLabel: 'Explore Agentic AI Services',
+    tabLabelBn: 'এজেন্টিক এআই সার্ভিস দেখুন'
   },
   {
-    id: 'faq-retainer-invoicing',
-    topic: 'treasury',
-    topicLabel: 'Billing & Multi-Business',
-    topicLabelBn: 'বিলিং ও ট্রেজারি',
-    question: 'How do recurring retainer fees and automated invoice statuses work?',
-    questionBn: 'ক্লায়েন্টদের মাসিক রিটেইনার ইনভয়েস তৈরি ও পেমেন্ট স্ট্যাটাস ট্র্যাকিং কীভাবে কাজ করে?',
-    answer: 'Navigate to Billing & Treasury > Invoices tab. You can generate itemized bills with custom tax/VAT rates, apply service-level agreements (SLAs), and log payments. Marking an invoice as Paid instantly updates your treasury ledger and bank account balances.',
-    answerBn: 'বিলিং ও ট্রেজারি > ইনভয়েস ট্যাবে যান। সেখানে কাস্টম ভ্যাট/ট্যাক্স সহ রিটেইনার বিল তৈরি করতে পারবেন। কোনো ইনভয়েস "পেইড" মার্ক করার সাথে সাথে তা ট্রেজারি লেজার ও সংশ্লিষ্ট ব্যাংক হিসাবে রেকর্ড হয়ে যায়।',
+    id: 'faq-agentic-ai-packages',
+    topic: 'services',
+    topicLabel: 'Agentic AI & Services',
+    topicLabelBn: 'এজেন্টিক এআই ও সার্ভিস',
+    question: 'What Agentic AI solutions are offered in Domain #11 of the AIC Service Catalog?',
+    questionBn: 'এআইসি সার্ভিস ক্যাটালগের ডোমেন ১১-এ কী কী এজেন্টিক এআই প্যাকেজ রয়েছে?',
+    answer: 'Domain #11 includes Autonomous Agent Fleet Deployment, Multi-Agent Customer Acquisition Systems, Self-Optimizing Meta Ads Agents, Intelligent Database & API Agents, Human-in-the-Loop Supervisory Cockpits, and Full-Stack Autonomous Enterprise Systems, backed by Founder Abu Talib.',
+    answerBn: 'ডোমেন ১১-এ রয়েছে অটোনোমাস এজেন্ট ফ্লিট ডিপ্লয়মেন্ট, মাল্টি-এজেন্ট কাস্টমার একুইজিশন সিস্টেম, সেলফ-অপটিমাইজিং মেটা অ্যাডস এজেন্ট, ইন্টেলিজেন্ট ডাটাবেস এজেন্ট এবং ফুল-স্ট্যাক অটোনোমাস এন্টারপ্রাইজ সিস্টেম।',
     keyPoints: [
-      'Statuses: Paid, Pending, Overdue with quick filter pills',
-      'Automated tax calculations, discounts, and itemized line items',
-      'Instant printable PDF generator for corporate disbursements'
+      '6 targeted packages designed for fast enterprise scaling',
+      'Full technical architecture documentation & webhook integrations',
+      'Direct advisory & implementation by Founder Abu Talib'
     ],
     keyPointsBn: [
-      'স্ট্যাটাস: পেইড, পেন্ডিং, ওভারডিউ দ্রুত ফিল্টার সুবিধা',
-      'স্বয়ংক্রিয় ট্যাক্স ক্যালকুলেশন এবং আইটেমাইজড রসিদ তৈরি',
-      'এক ক্লিকে কর্পোরেট প্রিন্ট ও পিডিএফ ডাউনলোড সুবিধা'
+      'দ্রুত এন্টারপ্রাইজ স্কেলিংয়ের জন্য ৬টি সুনির্দিষ্ট প্যাকেজ',
+      'পূর্ণাঙ্গ টেকনিক্যাল আর্কিটেকচার ও ওয়েবহুক ইন্টিগ্রেশন',
+      'ফাউন্ডার আবু তালিবের সরাসরি তত্ত্বাবধান ও বাস্তবায়ন'
     ],
-    tags: ['Invoices', 'Retainers', 'Taxes', 'Payments'],
-    tabTarget: 'billing',
-    tabLabel: 'View Invoices',
-    tabLabelBn: 'ইনভয়েস তালিকা দেখুন'
+    tags: ['Agentic AI', 'Packages', 'Deliverables', '7-Stage Journey'],
+    tabTarget: 'services',
+    tabLabel: 'View Service Catalog',
+    tabLabelBn: 'সার্ভিস ক্যাটালগ দেখুন'
   },
   {
     id: 'faq-andromeda-blueprint',
@@ -253,31 +253,31 @@ export const AGENCY_FAQS: AgencyFaqItem[] = [
       'ESC দিয়ে যেকোনো সময় মেনু বন্ধ করার সুবিধা'
     ],
     tags: ['Shortcuts', 'Ctrl+K', 'Command Palette', 'Navigation'],
-    tabTarget: 'overview',
-    tabLabel: 'Go to Overview',
-    tabLabelBn: 'ওভারভিউতে যান'
+    tabTarget: 'services',
+    tabLabel: 'Explore Services',
+    tabLabelBn: 'সার্ভিসসমূহ দেখুন'
   },
   {
     id: 'faq-security-permissions',
     topic: 'security',
     topicLabel: 'Security & Permissions',
     topicLabelBn: 'নিরাপত্তা ও পারমিশন',
-    question: 'Can I restrict sensitive sections like Treasury, Invoices, or Founder Credentials from team members?',
-    questionBn: 'ট্রেজারি, ইনভয়েস বা ফাউন্ডার ক্রেডেনশিয়ালস এর মতো সংবেদনশীল অংশগুলো কি অন্যদের থেকে লক করা যায়?',
-    answer: 'Yes. Through Master Topic Permissions (accessible via the Admin profile dropdown menu), Agency Directors can lock sensitive modules. Unauthorized team members or viewers encounter an access-restricted screen with an automated permission request workflow.',
-    answerBn: 'হ্যাঁ। অ্যাডমিন প্রোফাইল মেনু থেকে "Master Topic Permissions" ওপেন করে যেকোনো সংবেদনশীল মডিউল লক করতে পারবেন। অননুমোদিত ব্যবহারকারীরা সেখানে সিকিউর লক স্ক্রিন এবং রিকোয়েস্ট অ্যাক্সেস সুবিধা দেখতে পাবেন।',
+    question: 'Can I restrict sensitive sections or configure custom access roles for team members?',
+    questionBn: 'সংবেদনশীল অংশ বা নির্দিষ্ট টিমের জন্য কি কাস্টম অ্যাক্সেস পারমিশন কনফিগার করা যায়?',
+    answer: 'Yes. Through Master Topic Permissions (accessible via the Admin profile dropdown menu), Agency Directors can lock specific modules. Unauthorized team members encounter an access-restricted screen with an automated permission request workflow.',
+    answerBn: 'হ্যাঁ। অ্যাডমিন প্রোফাইল মেনু থেকে "Master Topic Permissions" ওপেন করে যেকোনো মডিউলে রোল-বেসড অ্যাক্সেস নির্ধারণ করতে পারবেন। অননুমোদিত ব্যবহারকারীরা সেখানে সিকিউর লক স্ক্রিন এবং রিকোয়েস্ট অ্যাক্সেস সুবিধা দেখতে পাবেন।',
     keyPoints: [
-      'Granular tab-level permissions for Admin, Media Buyer, and Client roles',
+      'Granular tab-level permissions for Admin, Operations, and Client roles',
       'Audit logging of permission grant and override events',
-      'Protection for high-stakes banking, API secrets, and founder credentials'
+      'Protection for production workflows, API keys, and client records'
     ],
     keyPointsBn: [
-      'অ্যাডমিন, মিডিয়া বায়ার এবং ক্লায়েন্ট রোলের জন্য আলাদা পারমিশন',
+      'অ্যাডমিন, অপারেশনস এবং ক্লায়েন্ট রোলের জন্য আলাদা পারমিশন',
       'অনুমোদন ও পরিবর্তন ট্র্যাকিং এর অডিট হিস্টোরি',
-      'ব্যাংকিং, এপিআই কি এবং অভ্যন্তরীণ তথ্যের সর্বোচ্চ নিরাপত্তা'
+      'প্রোডাকশন ওয়ার্কফ্লো, এপিআই কি এবং ক্লায়েন্ট রেকর্ডের সর্বোচ্চ নিরাপত্তা'
     ],
     tags: ['Security', 'RBAC', 'Permissions', 'Topic Locking'],
-    tabTarget: 'overview',
+    tabTarget: 'services',
     tabLabel: 'View Master Security',
     tabLabelBn: 'সিকিউরিটি সেটিংস দেখুন'
   },
@@ -288,8 +288,8 @@ export const AGENCY_FAQS: AgencyFaqItem[] = [
     topicLabelBn: 'ন্যাভিগেশন ও শর্টকাট',
     question: 'How do I toggle the dashboard between English and Bengali (Bangla)?',
     questionBn: 'সম্পূর্ণ ড্যাশবোর্ড কীভাবে ইংরেজি ও বাংলার মধ্যে অদলবদল করব?',
-    answer: 'Click the Language Switcher badge (EN / বাং) located next to the Help button in the top navigation header or in the agency footer. The entire interface, financial summaries, Andromeda playbooks, and service catalogs re-render immediately.',
-    answerBn: 'টপ হেডারে বা ফুটারে থাকা ভাষা সুইচ বোতামে (EN / বাং) ক্লিক করুন। সাথে সাথে সম্পূর্ণ ড্যাশবোর্ড, আর্থিক হিসাব, ক্যাম্পেইন গাইডলাইন এবং সার্ভিস ক্যাটালগ বাংলায় বা ইংরেজিতে রূপান্তরিত হবে।',
+    answer: 'Click the Language Switcher badge (EN / বাং) located next to the Help button in the top navigation header or in the agency footer. The entire interface, Agentic AI architectures, Andromeda playbooks, and service catalogs re-render immediately.',
+    answerBn: 'টপ হেডারে বা ফুটারে থাকা ভাষা সুইচ বোতামে (EN / বাং) ক্লিক করুন। সাথে সাথে সম্পূর্ণ ড্যাশবোর্ড, এজেন্টিক এআই আর্কিটেকচার, ক্যাম্পেইন গাইডলাইন এবং সার্ভিস ক্যাটালগ বাংলায় বা ইংরেজিতে রূপান্তরিত হবে।',
     keyPoints: [
       'One-click instantaneous language switching without page reload',
       'Culturally adapted terminology for agency operations and marketing metrics',
@@ -301,9 +301,9 @@ export const AGENCY_FAQS: AgencyFaqItem[] = [
       'আপনার পছন্দ সেশন জুড়ে স্বয়ংক্রিয়ভাবে মনে রাখে'
     ],
     tags: ['Language', 'Bangla', 'English', 'Localization'],
-    tabTarget: 'overview',
-    tabLabel: 'Go to Overview',
-    tabLabelBn: 'ওভারভিউতে যান'
+    tabTarget: 'services',
+    tabLabel: 'Go to Services',
+    tabLabelBn: 'সার্ভিস পেজে যান'
   },
   {
     id: 'faq-service-catalog-sla',
@@ -330,28 +330,28 @@ export const AGENCY_FAQS: AgencyFaqItem[] = [
     tabLabelBn: 'সার্ভিস ক্যাটালগ দেখুন'
   },
   {
-    id: 'faq-billing-exports',
-    topic: 'treasury',
-    topicLabel: 'Billing & Multi-Business',
-    topicLabelBn: 'বিলিং ও ট্রেজারি',
-    question: 'How do I export invoice statements and treasury ledgers to PDF, CSV, and JSON?',
-    questionBn: 'ইনভয়েস স্টেটমেন্ট ও ট্রেজারি লেজার কীভাবে PDF, CSV এবং JSON ফরম্যাটে এক্সপোর্ট করবেন?',
-    answer: 'In the Billing & Treasury module, click "Quick Export PDF" in the toolbar to generate an aggregated executive ledger statement, or click "Export CSV / PDF" to customize data filters. Each individual invoice in the table also features a dedicated PDF document button for instant download of branded client remittance receipts.',
-    answerBn: 'বিলিং ও ট্রেজারি মডিউলে টুলবারের "Quick Export PDF" বাটনে ক্লিক করে সামগ্রিক আর্থিক লেজার স্টেটমেন্ট তৈরি করুন অথবা "Export CSV / PDF" বাটনে ক্লিক করে নির্দিষ্ট ফিল্টার অনুযায়ী ডাউনলোড করুন। প্রতিটি ইনভয়েসের ডানদিকের পিডিএফ আইকন দিয়ে মুহূর্তের মধ্যে ক্লায়েন্ট রসিদ প্রিন্ট বা সেভ করা যায়।',
+    id: 'faq-autonomous-fleet-management',
+    topic: 'agents',
+    topicLabel: 'AI Fleet Operations',
+    topicLabelBn: 'এআই বহর অপারেশন',
+    question: 'How do autonomous agents in the fleet execute automated tools and report uptime?',
+    questionBn: 'এআই বহরের অটোনোমাস এজেন্টগুলো কীভাবে স্বয়ংক্রিয় টুল পরিচালনা ও আপটাইম রিপোর্ট করে?',
+    answer: 'Each autonomous agent solution runs on specialized webhook triggers and LLM inference runtimes. Telemetry continuously reports status (Active, Paused, Error), daily token usage, request latency, and client deployments directly on the AI Fleet dashboard.',
+    answerBn: 'প্রতিটি স্বায়ত্তশাসিত এজেন্ট নির্দিষ্ট ওয়েবহুক ট্রিগার ও এলএলএম রানটাইমে চলে। এআই বহর ড্যাশবোর্ডে সার্বক্ষণিক লাইভ স্ট্যাটাস (সক্রিয়, স্থগিত, ত্রুটি), দৈনিক টোকেন ব্যবহার, ল্যাটেন্সি ও ক্লায়েন্ট ডিপ্লয়মেন্ট পর্যবেক্ষণ করা যায়।',
     keyPoints: [
-      'Single-click PDF invoice generation with corporate branding and wire remittance info',
-      'Consolidated Accounts Receivable statement with payment status charts and schedules',
-      'CSV spreadsheet and JSON exports formatted for QuickBooks, Xero, and local tax filing'
+      'Zero-downtime webhook heartbeat monitoring',
+      'Granular daily token budgets and safety throttling',
+      'Direct one-click agent deployment into active client pipelines'
     ],
     keyPointsBn: [
-      'কর্পোরেট ব্র্যান্ডিং এবং ব্যাংক পেমেন্ট তথ্যসহ তাৎক্ষণিক একক পিডিএফ ইনভয়েস তৈরি',
-      'পেমেন্ট স্ট্যাটাস চার্ট ও শিডিউলসহ সমন্বিত একাউন্টস রিসিভেবল স্টেটমেন্ট',
-      'ট্যাক্স ফাইলিং ও অ্যাকাউন্টিং সফটওয়্যারে ব্যবহারের উপযোগী CSV ও JSON ডাটা'
+      'সার্বক্ষণিক ওয়েবহুক হার্টবিট ও আপটাইম পর্যবেক্ষণ',
+      'দৈনিক টোকেন বাজেট ও নিরাপত্তা থ্রটলিং সুবিধা',
+      'এক ক্লিকে নতুন ক্লায়েন্ট পাইপলাইনে এজেন্ট ডিপ্লয়'
     ],
-    tags: ['Invoices', 'PDF Export', 'CSV', 'Financial Ledger', 'Treasury', 'Banking'],
-    tabTarget: 'billing',
-    tabLabel: 'Open Billing & Treasury',
-    tabLabelBn: 'বিলিং ও ট্রেজারি খুলুন'
+    tags: ['AI Agents', 'Fleet', 'Uptime', 'Autonomous', 'Telemetry'],
+    tabTarget: 'fleet',
+    tabLabel: 'Open AI Fleet',
+    tabLabelBn: 'এআই বহর দেখুন'
   },
   {
     id: 'faq-pipeline-deliverables',
